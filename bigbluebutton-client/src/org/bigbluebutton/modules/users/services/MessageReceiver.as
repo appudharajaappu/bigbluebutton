@@ -22,7 +22,6 @@ package org.bigbluebutton.modules.users.services
   
   import flash.utils.setTimeout;
   
-  import org.as3commons.lang.StringUtils;
   import org.as3commons.logging.api.ILogger;
   import org.as3commons.logging.api.getClassLogger;
   import org.bigbluebutton.core.BBB;
@@ -611,19 +610,7 @@ package org.bigbluebutton.modules.users.services
       
       LiveMeeting.inst().voiceUsers.setListenOnlyForUser(userId, listenOnly);
     }
-    
-    
-    private function userTalk(userId:String, talking:Boolean):void { 
-      LiveMeeting.inst().voiceUsers.setMutedForUser(userId, talking);
-      
-      var event:CoreEvent = new CoreEvent(EventConstants.USER_TALKING);
-      event.message.userID = userId;
-      event.message.talking = talking;
-      globalDispatcher.dispatchEvent(event);  
-      
-    }
-    
-    
+
     /**
      * This meeting is in the process of ending by the server
      */
